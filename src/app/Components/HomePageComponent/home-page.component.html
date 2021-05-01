@@ -1,0 +1,29 @@
+<div>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Classification</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let c of classifications" [value]="c.id">
+                {{c.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+</div>
+
+<div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let m of mountains.mountains">
+                <td>{{m.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
