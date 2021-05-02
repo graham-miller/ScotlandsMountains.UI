@@ -1,12 +1,16 @@
 <div>
     <mat-form-field appearance="fill">
         <mat-label>Classification</mat-label>
-        <mat-select>
+        <mat-select [value]="selectedClassification.id">
             <mat-option *ngFor="let c of classifications" [value]="c.id">
                 {{c.name}}
             </mat-option>
         </mat-select>
     </mat-form-field>
+</div>
+
+<div>
+    {{selectedClassification.description}}
 </div>
 
 <div>

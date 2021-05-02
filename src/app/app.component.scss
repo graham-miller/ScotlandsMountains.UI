@@ -1,0 +1,17 @@
+sm-header {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%  !important;
+}
+
+div.content-wrapper {
+    background-color: whitesmoke;
+    padding-bottom: 5rem;
+}
+
+div.content {
+    max-width: 62em;
+    margin: 64px auto 0 auto;
+    padding: 1rem;
+}
