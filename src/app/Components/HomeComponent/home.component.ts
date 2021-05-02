@@ -2,12 +2,12 @@ import { Component, OnInit } from "@angular/core";
 import { MountainDataService } from "src/app/Services/MountainDataService";
 
 @Component({
-    templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.scss']
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomeComponent implements OnInit {
     classifications: any;
-    mountains: any;
+    selectedClassification: any;
 
     constructor(private mountainDataService: MountainDataService) {
 
@@ -16,10 +16,7 @@ export class HomePageComponent implements OnInit {
     ngOnInit(): void {
         this.mountainDataService.getInitialData().subscribe((response) => {
             this.classifications = response.classifications;
-            this.mountains = response.mountains;
+            this.selectedClassification = response.classification;
         })
     }
-
-
-
 }
