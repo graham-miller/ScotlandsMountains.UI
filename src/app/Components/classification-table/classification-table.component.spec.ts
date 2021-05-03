@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MountainTableComponent } from './mountain-table.component';
+import { ClassificationTableComponent } from './classification-table.component';
 
-describe('MountainListComponent', () => {
-  let component: MountainTableComponent;
-  let fixture: ComponentFixture<MountainTableComponent>;
+describe('ClassificationListComponent', () => {
+  let component: ClassificationTableComponent;
+  let fixture: ComponentFixture<ClassificationTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MountainTableComponent ]
+      declarations: [ ClassificationTableComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MountainTableComponent);
+    fixture = TestBed.createComponent(ClassificationTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -14,7 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LegalComponent } from './Components/legal/legal.component';
-import { MountainTableComponent } from './Components/mountain-table/mountain-table.component';
+import { ClassificationTableComponent } from './Components/classification-table/classification-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -28,7 +28,7 @@ import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
     FooterComponent,
     LegalComponent,
     MetresToFeetPipe,
-    MountainTableComponent
+    ClassificationTableComponent
   ],
   imports: [
     BrowserModule,

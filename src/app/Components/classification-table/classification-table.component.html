@@ -1,5 +1,10 @@
 <div>
-    <mat-table [dataSource]="dataSource" matSort matSortActive="height" matSortDirection="desc">
+    <mat-table [dataSource]="dataSource" matSort matSortActive="position" matSortDirection="asc">
+
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Position</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.position}}</mat-cell>
+        </ng-container>
 
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
@@ -9,7 +14,7 @@
         <ng-container matColumnDef="height">
             <mat-header-cell *matHeaderCellDef mat-sort-header class="mat-cell-right">Height</mat-header-cell>
             <mat-cell *matCellDef="let row" class="mat-cell-right">
-                {{row.height | number:'1.0-0'}}m&emsp;({{row.height | metresToFeet | number:'1.0-0'}}ft)
+                {{row.height.metres | number:'1.0-0'}}m&nbsp;({{row.height.metres | metresToFeet | number:'1.0-0'}}ft)
             </mat-cell>
         </ng-container>
 
