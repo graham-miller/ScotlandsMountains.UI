@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
+import { MapComponent } from './Components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
     HeaderComponent,
     FooterComponent,
     LegalComponent,
+    MapComponent,
     MetresToFeetPipe,
     ClassificationTableComponent
   ],
