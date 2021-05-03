@@ -1,4 +1,5 @@
 import { Height } from './Mountain';
+import { Location } from './Mountain';
 
 export interface Classification {
     id: string;

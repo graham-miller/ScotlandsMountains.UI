@@ -20,7 +20,7 @@
 
     <mat-tab-group>
         <mat-tab label="Map">
-            <map></map>
+            <map [mountains]="selectedClassification.mountains"></map>
         </mat-tab>
         <mat-tab label="List">
             <classification-table [mountains]="selectedClassification.mountains"></classification-table>

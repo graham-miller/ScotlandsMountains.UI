@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
 import { MapComponent } from './Components/map/map.component';
+import { LeafletService } from './Services/leaflet.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { MapComponent } from './Components/map/map.component';
     MatPaginatorModule,
     MatSortModule,
   ],
-  providers: [],
+  providers: [MetresToFeetPipe, LeafletService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
