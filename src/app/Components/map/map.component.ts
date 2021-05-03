@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnDestroy } from '@angular
 import { formatNumber } from '@angular/common';
 import { ClassificationMountain } from 'src/app/Models/Classification';
 import { MetresToFeetPipe } from 'src/app/Pipes/metres-to-feet.pipe';
-import { LeafletService } from 'src/app/Services/leaflet.service';
+import { LeafletService } from 'src/app/Services/Leaflet.service';
 
 @Component({
     selector: 'map',

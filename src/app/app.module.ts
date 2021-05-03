@@ -20,7 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
 import { MapComponent } from './Components/map/map.component';
-import { LeafletService } from './Services/leaflet.service';
+import { LeafletService } from './Services/Leaflet.service';
 
 @NgModule({
   declarations: [

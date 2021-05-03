@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 import * as L from 'leaflet';
+import GestureHandling from 'leaflet-gesture-handling';
 
 L.Marker.prototype.options.icon = L.divIcon({ className: 'mountain-marker' });
+L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
 
 @Injectable()
 export class LeafletService {
