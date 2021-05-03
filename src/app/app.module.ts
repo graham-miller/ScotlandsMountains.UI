@@ -9,10 +9,16 @@ import { HomeComponent } from './Components/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LegalComponent } from './Components/legal/legal.component';
+import { MountainTableComponent } from './Components/mountain-table/mountain-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,9 @@ import { LegalComponent } from './Components/legal/legal.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    LegalComponent
+    LegalComponent,
+    MetresToFeetPipe,
+    MountainTableComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,11 @@ import { LegalComponent } from './Components/legal/legal.component';
     MatButtonModule,
     MatIconModule, 
     MatSelectModule,
-    MatToolbarModule
+    MatTabsModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

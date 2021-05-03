@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Classification } from "src/app/Models/Classification";
 import { MountainDataService } from "src/app/Services/MountainDataService";
 
 @Component({
@@ -6,8 +7,8 @@ import { MountainDataService } from "src/app/Services/MountainDataService";
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    classifications: any;
-    selectedClassification: any;
+    classifications: Classification[] = [];
+    selectedClassification: Classification | null = null;
 
     constructor(private mountainDataService: MountainDataService) {
 

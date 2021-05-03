@@ -1,29 +1,29 @@
-<div>
-    <mat-form-field appearance="fill">
-        <mat-label>Classification</mat-label>
-        <mat-select [value]="selectedClassification.id">
-            <mat-option *ngFor="let c of classifications" [value]="c.id">
-                {{c.name}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+<div *ngIf="!selectedClassification">
+    Loading...
 </div>
 
-<div>
-    {{selectedClassification.description}}
-</div>
+<div *ngIf="selectedClassification">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Classification</mat-label>
+            <mat-select [value]="selectedClassification.id">
+                <mat-option *ngFor="let c of classifications" [value]="c.id">
+                    {{c.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 
-<div>
-    <table *ngIf="selectedClassification">
-        <thead>
-            <tr>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let m of selectedClassification.mountains">
-                <td>{{m.name}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        {{selectedClassification.description}}
+    </div>
+
+    <mat-tab-group>
+        <mat-tab label="Map">
+            map goes here
+        </mat-tab>
+        <mat-tab label="List">
+            <mountain-table [mountains]="selectedClassification.mountains"></mountain-table>
+        </mat-tab>
+    </mat-tab-group>
 </div>
