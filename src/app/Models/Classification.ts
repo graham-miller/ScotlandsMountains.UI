@@ -1,5 +1,4 @@
-import { Height } from './Mountain';
-import { Location } from './Mountain';
+import { Mountain } from './Mountain';
 
 export interface Classification {
     id: string;
@@ -10,13 +9,5 @@ export interface Classification {
 
     description: string;
 
-    mountains: ClassificationMountain[];
-}
-
-export interface ClassificationMountain {
-    id: string;
-    position: number;
-    name: string;
-    location: Location;
-    height: Height;
+    mountains: Mountain[];
 }

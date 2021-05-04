@@ -20,7 +20,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
 import { MapComponent } from './Components/map/map.component';
-import { LeafletService } from './Services/Leaflet.service';
+import { MapService } from './Services/Map.service';
+import { MountainMarkerService } from './Services/MountainMarker.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,11 @@ import { LeafletService } from './Services/Leaflet.service';
     MatPaginatorModule,
     MatSortModule,
   ],
-  providers: [MetresToFeetPipe, LeafletService],
+  providers: [
+    MetresToFeetPipe,
+    MapService,
+    MountainMarkerService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -3,7 +3,7 @@ import { Component, ViewChild, Input } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ClassificationMountain } from 'src/app/Models/Classification';
+import { Mountain } from '../../Models/Mountain';
 
 @Component({
   selector: 'classification-table',
@@ -12,16 +12,16 @@ import { ClassificationMountain } from 'src/app/Models/Classification';
 })
 export class ClassificationTableComponent implements AfterViewInit {
   columns: string[] = ['position', 'name', 'height'];
-  dataSource: MatTableDataSource<ClassificationMountain> = new MatTableDataSource<ClassificationMountain>([]);
+  dataSource: MatTableDataSource<Mountain> = new MatTableDataSource<Mountain>([]);
 
   @ViewChild(MatPaginator) paginator?: MatPaginator = undefined;
   @ViewChild(MatSort) sort?: MatSort = undefined;
 
-  @Input() mountains: ClassificationMountain[] = [];
+  @Input() mountains: Mountain[] = [];
 
   ngAfterViewInit(): void {
     if (this.mountains) {
-      this.dataSource = new MatTableDataSource<ClassificationMountain>(this.mountains);
+      this.dataSource = new MatTableDataSource<Mountain>(this.mountains);
 
       if (this.paginator && this.sort){
         this.dataSource.paginator = this.paginator;
@@ -31,9 +31,9 @@ export class ClassificationTableComponent implements AfterViewInit {
     }
   }
 
-  getSortingDataAccessor(mountain: ClassificationMountain, property: string) {
+  getSortingDataAccessor(mountain: Mountain, property: string): string | number {
     switch(property) {
-      case 'position': return mountain.position;
+      case 'position': return mountain.position ?? 0;
       case 'height': return mountain.height.metres;
       case 'name': return mountain.name;
       default: return 0;

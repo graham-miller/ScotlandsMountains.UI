@@ -2,20 +2,21 @@ import { Classification } from "./Classification";
 
 export interface Mountain {
     id: string;
+    position?: number;
     name: string;
-    aliases: string[];
+    aliases?: string[];
     location: Location;
-    dobihId: number;
-    gridRef: string;
+    dobihId?: number;
+    gridRef?: string;
     height: Height;
-    prominence: Prominence;
-    features: string;
-    observations: string;
-    parent: Mountain;
-    region: Region;
-    county: County;
-    classifications: Classification[];
-    maps: Map[];
+    prominence?: Prominence;
+    features?: string;
+    observations?: string;
+    parent?: Mountain;
+    region?: Region;
+    county?: County;
+    classifications?: Classification[];
+    maps?: Map[];
 }
 
 export interface Location {
