@@ -22,6 +22,7 @@ import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
 import { MapComponent } from './Components/map/map.component';
 import { MapService } from './Services/Map.service';
 import { MountainMarkerService } from './Services/MountainMarker.service';
+import { ClassificationsComponent } from './Components/classifications/classifications.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MountainMarkerService } from './Services/MountainMarker.service';
     LegalComponent,
     MapComponent,
     MetresToFeetPipe,
+    ClassificationsComponent,
     ClassificationTableComponent
   ],
   imports: [

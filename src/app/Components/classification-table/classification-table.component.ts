@@ -1,4 +1,4 @@
-import { AfterViewInit } from '@angular/core';
+import { AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Component, ViewChild, Input } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,7 +10,7 @@ import { Mountain } from '../../Models/Mountain';
   templateUrl: './classification-table.component.html',
   styleUrls: ['./classification-table.component.css']
 })
-export class ClassificationTableComponent implements AfterViewInit {
+export class ClassificationTableComponent implements AfterViewInit, OnChanges {
   columns: string[] = ['position', 'name', 'height'];
   dataSource: MatTableDataSource<Mountain> = new MatTableDataSource<Mountain>([]);
 
@@ -20,6 +20,14 @@ export class ClassificationTableComponent implements AfterViewInit {
   @Input() mountains: Mountain[] = [];
 
   ngAfterViewInit(): void {
+    this.displayMountains();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.displayMountains();
+  }
+
+  private displayMountains() {
     if (this.mountains) {
       this.dataSource = new MatTableDataSource<Mountain>(this.mountains);
 
@@ -31,7 +39,7 @@ export class ClassificationTableComponent implements AfterViewInit {
     }
   }
 
-  getSortingDataAccessor(mountain: Mountain, property: string): string | number {
+  private getSortingDataAccessor(mountain: Mountain, property: string): string | number {
     switch(property) {
       case 'position': return mountain.position ?? 0;
       case 'height': return mountain.height.metres;

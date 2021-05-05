@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { Mountain } from '../../Models/Mountain';
 import { MapService } from '../../Services/Map.service';
 import { MountainMarkerService } from '../../Services/MountainMarker.service';
@@ -8,7 +8,7 @@ import { MountainMarkerService } from '../../Services/MountainMarker.service';
     template: '<div id="map"></div>',
     styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements AfterViewInit, OnDestroy {
+export class MapComponent implements AfterViewInit, OnDestroy, OnChanges {
 
   @Input()mountains: Mountain[] = [];
   
@@ -21,9 +21,12 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     private mountainMarkerService: MountainMarkerService,
     private elementRef: ElementRef
   ) { }
-
   ngAfterViewInit(): void {
     this.map = this.mapService.createMap('map', this.markers);
+    this.addMountainsToMap();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.addMountainsToMap();
   }
 
