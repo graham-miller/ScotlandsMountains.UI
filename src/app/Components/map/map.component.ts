@@ -32,7 +32,9 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnChanges {
   }
 
   ngOnDestroy() {
-    this.mapService.destroyMap(this.map, this.elementRef.nativeElement.innerHTML);
+    if (this.map) {
+      this.mapService.destroyMap(this.map, this.elementRef.nativeElement.innerHTML);
+    }
   }
 
   private addMountainsToMap() {

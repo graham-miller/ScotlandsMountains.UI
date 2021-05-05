@@ -25,12 +25,10 @@ export class MapService {
         return map;
     }
 
-    destroyMap(map: L.Map | undefined, replaceWith: string) {
-        if (map) {
-            map.off();
-            map.remove();
-            map.getContainer().replaceWith(replaceWith);
-        }
+    destroyMap(map: L.Map, replaceWith: string) {
+        map.off();
+        map.remove();
+        map.getContainer().replaceWith(replaceWith);
     }
 
     createLayerGroup(layers?: L.Layer[] | undefined, options?: L.LayerOptions | undefined): L.LayerGroup<any> {
