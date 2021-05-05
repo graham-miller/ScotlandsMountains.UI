@@ -23,7 +23,7 @@ export class ClassificationTableComponent implements AfterViewInit, OnChanges {
     this.displayMountains();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.displayMountains();
   }
 

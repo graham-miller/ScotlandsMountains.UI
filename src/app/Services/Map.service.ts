@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import * as L from 'leaflet';
+import 'leaflet.markercluster';
 import GestureHandling from 'leaflet-gesture-handling';
 import { Mountain } from "../Models/Mountain";
 
@@ -8,36 +9,20 @@ L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
 
 @Injectable()
 export class MapService {
-
-    createMap(element: string | HTMLElement, markersLayer: L.LayerGroup<any>): L.Map {
+    
+    createMap(element: string | HTMLElement, layerGroups: L.LayerGroup<any>[]): L.Map {
 
         const map = L.map(element, this.mapOptions);
         map.attributionControl.setPrefix('');
         L.control.scale(this.scaleOptions).addTo(map);
 
-        const markers = L.layerGroup([markersLayer]);
+        const markers = L.layerGroup(layerGroups);
 
         L.control.layers(this.baseLayers, {'Markers': markers}).addTo(map);
         this.baseLayers['Outdoors'].addTo(map);
         markers.addTo(map);
 
         return map;
-    }
-
-    getBounds(mountains: Mountain[]): L.LatLngBoundsExpression {
-        let minLat: number = 90;
-        let maxLat: number = -90;
-        let minLng: number = 180;
-        let maxLng: number = -180;
-
-        mountains.forEach(m => {
-            minLat = m.location.coordinates[1] < minLat ? m.location.coordinates[1] : minLat;
-            maxLat = m.location.coordinates[1] > maxLat ? m.location.coordinates[1] : maxLat;
-            minLng = m.location.coordinates[0] < minLng ? m.location.coordinates[0] : minLng;
-            maxLng = m.location.coordinates[0] > maxLng ? m.location.coordinates[0] : maxLng;
-        })
-
-        return [[minLat, minLng], [maxLat, maxLng]]
     }
 
     destroyMap(map: L.Map | undefined, replaceWith: string) {
@@ -50,6 +35,14 @@ export class MapService {
 
     createLayerGroup(layers?: L.Layer[] | undefined, options?: L.LayerOptions | undefined): L.LayerGroup<any> {
         return L.layerGroup(layers, options);
+    }
+    
+    createMarkerClusterGroup(): L.MarkerClusterGroup {
+        return L.markerClusterGroup({
+        iconCreateFunction: () => {
+          return L.divIcon({ html: '<div class="clustered-mountain-marker"><div>+<div></div>' });
+        }
+      });
     }
 
     createMarker(latlng: L.LatLngExpression, options?: L.MarkerOptions | undefined): L.Marker<any> {

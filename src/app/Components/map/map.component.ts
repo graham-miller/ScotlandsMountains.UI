@@ -15,6 +15,7 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnChanges {
   map?: L.Map | undefined;
 
   private markers = this.mapService.createLayerGroup();
+  private clusteredMarkers = this.mapService.createMarkerClusterGroup();
 
   constructor(
     private mapService: MapService,
@@ -22,11 +23,11 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnChanges {
     private elementRef: ElementRef
   ) { }
   ngAfterViewInit(): void {
-    this.map = this.mapService.createMap('map', this.markers);
+    this.map = this.mapService.createMap('map', [this.markers, this.clusteredMarkers]);
     this.addMountainsToMap();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.addMountainsToMap();
   }
 
@@ -37,14 +38,30 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnChanges {
   private addMountainsToMap() {
     this.removeMountainsFromMap();
     if (this.map) {
-      const group = /*mountains.length > 300 ? this.clusteredMarkers :*/ this.markers;
+      const group = this.mountains.length > 300 ? this.clusteredMarkers : this.markers;
       this.mountains.forEach((m, i) => group.addLayer(this.mountainMarkerService.getMarker(m, -i)));
-      this.map.flyToBounds(this.mapService.getBounds(this.mountains));
+      this.map.flyToBounds(this.getBounds());
     }
   }
 
+  getBounds(): L.LatLngBoundsExpression {
+    let minLat: number = 90;
+    let maxLat: number = -90;
+    let minLng: number = 180;
+    let maxLng: number = -180;
+
+    this.mountains.forEach(m => {
+        minLat = m.location.coordinates[1] < minLat ? m.location.coordinates[1] : minLat;
+        maxLat = m.location.coordinates[1] > maxLat ? m.location.coordinates[1] : maxLat;
+        minLng = m.location.coordinates[0] < minLng ? m.location.coordinates[0] : minLng;
+        maxLng = m.location.coordinates[0] > maxLng ? m.location.coordinates[0] : maxLng;
+    })
+
+    return [[minLat, minLng], [maxLat, maxLng]]
+}
+
   private removeMountainsFromMap() {
     this.markers.clearLayers();
-    //this.clusteredMarkers.clearLayers();
+    this.clusteredMarkers.clearLayers();
   }
 }
