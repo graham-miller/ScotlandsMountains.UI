@@ -6,7 +6,7 @@
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Classification</mat-label>
-            <mat-select [(value)]="selectedClassificationId" (selectionChange)="onSelectedClassificationChange()">
+            <mat-select [(value)]="selectedClassificationId" (selectionChange)="navigateToClassification()">
                 <mat-option *ngFor="let c of classifications" [value]="c.id">
                     {{c.name}}
                 </mat-option>

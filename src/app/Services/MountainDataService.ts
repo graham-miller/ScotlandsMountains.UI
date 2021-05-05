@@ -9,18 +9,22 @@ import { InitialData } from '../Models/InitialData';
     providedIn: 'root'
 })
 export class MountainDataService {
-
     constructor(private http: HttpClient) {
     }
 
     getInitialData(): Observable<InitialData> {
         return this.http.get<InitialData>('http://localhost:7071/api/initial')
-            .pipe(catchError(this.handleError<InitialData>('getInitialData')))
+            .pipe(catchError(this.handleError<InitialData>('getInitialData()')))
     }
 
-    getClassification(id: string) {
+    getClassifications(): Observable<Classification[]> {
+        return this.http.get<Classification[]>(`http://localhost:7071/api/classifications`)
+            .pipe(catchError(this.handleError<Classification[]>('getClassifications()')))
+    }
+
+    getClassification(id: string): Observable<Classification> {
         return this.http.get<Classification>(`http://localhost:7071/api/classifications/${id}`)
-            .pipe(catchError(this.handleError<Classification>('getInitialData')))
+            .pipe(catchError(this.handleError<Classification>(`getClassification($'id')`)))
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

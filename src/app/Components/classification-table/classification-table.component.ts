@@ -8,7 +8,7 @@ import { Mountain } from '../../Models/Mountain';
 @Component({
   selector: 'classification-table',
   templateUrl: './classification-table.component.html',
-  styleUrls: ['./classification-table.component.css']
+  styleUrls: ['./classification-table.component.scss']
 })
 export class ClassificationTableComponent implements AfterViewInit, OnChanges {
   columns: string[] = ['position', 'name', 'height'];
