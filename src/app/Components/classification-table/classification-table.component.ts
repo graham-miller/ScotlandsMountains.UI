@@ -1,12 +1,11 @@
-import { AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Component, ViewChild, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Mountain } from '../../Models/Mountain';
+import { Mountain } from 'src/app/Models/Mountain';
 
 @Component({
-  selector: 'classification-table',
+  selector: 'app-classification-table',
   templateUrl: './classification-table.component.html',
   styleUrls: ['./classification-table.component.scss']
 })

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClassificationTableComponent } from './classification-table.component';
 
-describe('ClassificationListComponent', () => {
+describe('ClassificationTableComponent', () => {
   let component: ClassificationTableComponent;
   let fixture: ComponentFixture<ClassificationTableComponent>;
 

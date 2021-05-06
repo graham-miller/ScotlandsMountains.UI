@@ -23,6 +23,9 @@ import { MapComponent } from './Components/map/map.component';
 import { MapService } from './Services/Map.service';
 import { MountainMarkerService } from './Services/MountainMarker.service';
 import { ClassificationsComponent } from './Components/classifications/classifications.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { GettyComponent } from './Components/getty/getty.component';
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { ClassificationsComponent } from './Components/classifications/classific
     MapComponent,
     MetresToFeetPipe,
     ClassificationsComponent,
-    ClassificationTableComponent
+    ClassificationTableComponent,
+    PageNotFoundComponent,
+    GettyComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,7 @@ import { ClassificationsComponent } from './Components/classifications/classific
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatOptionModule
   ],
   providers: [
     MetresToFeetPipe,

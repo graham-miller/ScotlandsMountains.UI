@@ -27,6 +27,8 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
+              "node_modules/leaflet/dist/images/layers-2x.png",
+              "node_modules/leaflet/dist/images/layers.png",
               "src/404.html",
               "src/favicon.ico",
               "src/assets"
