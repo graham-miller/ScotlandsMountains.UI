@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'classifications', component: ClassificationsComponent },
   // { path: 'mountain/:id', component: MountainComponent },
   { path: 'legal/:type', component: LegalComponent },
-  { path: '**', component: PageNotFoundComponent }
+  {path: '404', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

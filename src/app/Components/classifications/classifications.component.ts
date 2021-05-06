@@ -39,9 +39,13 @@ export class ClassificationsComponent implements OnInit {
   getClassification() {
       if (this.selectedClassificationId) {
           this.mountainDataService.getClassification(this.selectedClassificationId).subscribe((response) => {
-              this.selectedClassificationId = response.id;
-              this.description = response.description;
-              this.mountains = response.mountains;
+              if (response) {
+                this.selectedClassificationId = response.id;
+                this.description = response.description;
+                this.mountains = response.mountains;
+              } else {
+                this.router.navigate(['/404'], { skipLocationChange: true });
+              }
           });
       }
   }

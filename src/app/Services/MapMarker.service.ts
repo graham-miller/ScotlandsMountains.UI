@@ -42,7 +42,7 @@ export class MapMarkerService {
     }
 
     private showPopup(event: L.LeafletEvent, mountain: Mountain) {
-        event.target.bindPopup(this.getPopupText(mountain)).openPopup();
+        event.target.bindPopup(this.getPopupText(mountain), {closeButton: false}).openPopup();
     }
 
     private hidePopup(event: L.LeafletEvent) {
