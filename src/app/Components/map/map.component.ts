@@ -4,7 +4,7 @@ import { MapService } from '../../Services/Map.service';
 import { MountainMarkerService } from '../../Services/MountainMarker.service';
 
 @Component({
-    selector: 'map',
+    selector: 'app-map',
     template: '<div id="map"></div>',
     styleUrls: ['./map.component.scss']
 })
