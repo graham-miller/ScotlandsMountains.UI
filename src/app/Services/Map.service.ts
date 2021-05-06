@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import * as L from 'leaflet';
-import 'leaflet.markercluster';
 import GestureHandling from 'leaflet-gesture-handling';
-import { Mountain } from "../Models/Mountain";
 
 L.Marker.prototype.options.icon = L.divIcon({ className: 'mountain-marker' });
 L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
@@ -29,22 +27,6 @@ export class MapService {
         map.off();
         map.remove();
         map.getContainer().replaceWith(replaceWith);
-    }
-
-    createLayerGroup(layers?: L.Layer[] | undefined, options?: L.LayerOptions | undefined): L.LayerGroup<any> {
-        return L.layerGroup(layers, options);
-    }
-    
-    createMarkerClusterGroup(): L.MarkerClusterGroup {
-        return L.markerClusterGroup({
-        iconCreateFunction: () => {
-          return L.divIcon({ html: '<div class="clustered-mountain-marker"><div>+<div></div>' });
-        }
-      });
-    }
-
-    createMarker(latlng: L.LatLngExpression, options?: L.MarkerOptions | undefined): L.Marker<any> {
-        return L.marker(latlng, options);
     }
 
     private mapOptions = {

@@ -21,7 +21,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
 import { MapComponent } from './Components/map/map.component';
 import { MapService } from './Services/Map.service';
-import { MountainMarkerService } from './Services/MountainMarker.service';
+import { MapMarkerService } from './Services/MapMarker.service';
 import { ClassificationsComponent } from './Components/classifications/classifications.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { GettyComponent } from './Components/getty/getty.component';
@@ -59,7 +59,7 @@ import { MatOptionModule } from '@angular/material/core';
   providers: [
     MetresToFeetPipe,
     MapService,
-    MountainMarkerService
+    MapMarkerService
   ],
   bootstrap: [AppComponent],
 })

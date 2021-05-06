@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { Mountain } from '../../Models/Mountain';
 import { MapService } from '../../Services/Map.service';
-import { MountainMarkerService } from '../../Services/MountainMarker.service';
+import { MapMarkerService } from '../../Services/MapMarker.service';
 
 @Component({
     selector: 'app-map',
@@ -14,12 +14,12 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnChanges {
   
   map?: L.Map | undefined;
 
-  private markers = this.mapService.createLayerGroup();
-  private clusteredMarkers = this.mapService.createMarkerClusterGroup();
+  private markers = this.markerService.createMarkerLayer();
+  private clusteredMarkers = this.markerService.createMarkerClusterLayer();
 
   constructor(
     private mapService: MapService,
-    private mountainMarkerService: MountainMarkerService,
+    private markerService: MapMarkerService,
     private elementRef: ElementRef
   ) { }
   ngAfterViewInit(): void {
@@ -41,7 +41,7 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnChanges {
     this.removeMountainsFromMap();
     if (this.map) {
       const group = this.mountains.length > 300 ? this.clusteredMarkers : this.markers;
-      this.mountains.forEach((m, i) => group.addLayer(this.mountainMarkerService.getMarker(m, -i)));
+      this.mountains.forEach((m, i) => group.addLayer(this.markerService.getMarker(m, -i)));
       this.map.flyToBounds(this.getBounds());
     }
   }

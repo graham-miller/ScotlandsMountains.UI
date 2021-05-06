@@ -1,24 +1,36 @@
 import { formatNumber } from "@angular/common";
 import { Injectable } from "@angular/core";
+import * as L from 'leaflet';
+import 'leaflet.markercluster';
 import { Mountain } from "../Models/Mountain";
 import { MetresToFeetPipe } from "../Pipes/metres-to-feet.pipe";
-import { MapService } from "./Map.service";
 
 @Injectable()
-export class MountainMarkerService {
+export class MapMarkerService {
 
     constructor(
-        private mapService: MapService,
         private metresToFeet: MetresToFeetPipe,
     ) { }
 
     public getMarker(mountain: Mountain, zIndex: number): L.Marker {
-        const marker = this.mapService.createMarker([mountain.location.coordinates[1], mountain.location.coordinates[0]], { zIndexOffset: zIndex });
+        const marker = L.marker([mountain.location.coordinates[1], mountain.location.coordinates[0]], { zIndexOffset: zIndex });
         marker.on('mouseover', e => this.showPopup(e, mountain));
         marker.on('mouseout', e => this.hidePopup(e));
         marker.on('click', e => this.togglePopup(e, mountain));
 
         return marker;
+    }
+
+    createMarkerLayer(): L.LayerGroup<any> {
+        return L.layerGroup();
+    }
+    
+    createMarkerClusterLayer(): L.MarkerClusterGroup {
+        return L.markerClusterGroup({
+        iconCreateFunction: () => {
+          return L.divIcon({ html: '<div class="clustered-mountain-marker"><div>+<div></div>' });
+        }
+      });
     }
 
     private togglePopup(event: L.LeafletEvent, mountain: Mountain) {
