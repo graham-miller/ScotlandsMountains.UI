@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClassificationsComponent } from './Components/classifications/classifications.component';
 import { LegalComponent } from './Components/legal/legal.component';
+import { MountainComponent } from './Components/mountain/mountain.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -10,10 +11,10 @@ const routes: Routes = [
   // { path: 'search', component: SearchComponent },
   { path: 'classifications/:id', component: ClassificationsComponent },
   { path: 'classifications', component: ClassificationsComponent },
-  // { path: 'mountain/:id', component: MountainComponent },
+  { path: 'mountains/:id', component: MountainComponent },
   { path: 'legal/:type', component: LegalComponent },
-  {path: '404', component: PageNotFoundComponent},
-  {path: '**', redirectTo: '/404'}
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({

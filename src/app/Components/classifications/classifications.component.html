@@ -1,8 +1,11 @@
 <div *ngIf="!selectedClassificationId">
-    Loading...
+    <app-loading></app-loading>
 </div>
 
 <div *ngIf="selectedClassificationId">
+
+    <h2>Classifications</h2>
+
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Classification</mat-label>

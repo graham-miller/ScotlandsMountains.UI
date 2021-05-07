@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Classification } from '../Models/Classification';
 import { InitialData } from '../Models/InitialData';
+import { Mountain } from '../Models/Mountain';
 
 @Injectable({
     providedIn: 'root'
@@ -25,6 +26,11 @@ export class MountainDataService {
     getClassification(id: string): Observable<Classification> {
         return this.http.get<Classification>(`http://localhost:7071/api/classifications/${id}`)
             .pipe(catchError(this.handleError<Classification>(`getClassification(${id})`)))
+    }
+
+    getMountain(id: string): Observable<Mountain> {
+        return this.http.get<Mountain>(`http://localhost:7071/api/mountains/${id}`)
+            .pipe(catchError(this.handleError<Mountain>(`getMountain(${id})`)))
     }
 
     private handleError<T>(operation = 'operation', result?: T) {
