@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClassificationsComponent } from './Components/classifications/classifications.component';
 import { LegalComponent } from './Components/legal/legal.component';
+import { LoadingComponent } from './Components/loading/loading.component';
 import { MountainComponent } from './Components/mountain/mountain.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 

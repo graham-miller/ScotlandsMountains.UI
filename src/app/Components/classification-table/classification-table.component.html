@@ -19,7 +19,10 @@
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+        <mat-row
+            *matRowDef="let row; columns: columns;"
+            [routerLink]="['/mountains/', row.id]">
+        </mat-row>
 
     </mat-table>
     <mat-paginator hidePageSize="true" pageSize="10" showFirstLastButtons></mat-paginator>

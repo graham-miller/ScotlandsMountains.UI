@@ -28,6 +28,7 @@ import { GettyComponent } from './Components/getty/getty.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MountainComponent } from './Components/mountain/mountain.component';
 import { LoadingComponent } from './Components/loading/loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { LoadingComponent } from './Components/loading/loading.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
     MatOptionModule
   ],
   providers: [
