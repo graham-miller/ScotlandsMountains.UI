@@ -10,16 +10,16 @@
 
     <dl>
         <dt>Height</dt>
-        <dd>{{mountain.height.metres | number:'1.0-0'}}m ({{mountain.height.metres | metresToFeet | number:'1.0-0'}}ft)</dd>
+        <dd>{{mountain.height.metres | formatHeight}}</dd>
 
         <dt>Other names</dt>
         <dd><span *ngFor="let alias of mountain.aliases">{{alias}}<br/></span></dd>
 
         <dt>Prominence</dt>
         <dd>
-            {{mountain.prominence?.metres || 0 | number:'1.0-0'}}m ({{mountain.prominence?.metres || 0 | metresToFeet | number:'1.0-0'}}ft)
+            {{mountain.prominence?.metres || 0 | formatHeight}}
             from {{mountain.prominence?.measuredFrom}} at
-            {{mountain.prominence?.measuredFromHeight?.metres || 0 | number:'1.0-0'}}m ({{mountain.prominence?.measuredFromHeight?.metres || 0 | metresToFeet | number:'1.0-0'}}ft)
+            {{mountain.prominence?.measuredFromHeight?.metres || 0 | formatHeight}}
         </dd>
 
         <dt>Grid ref.</dt>

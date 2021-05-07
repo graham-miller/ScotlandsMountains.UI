@@ -14,7 +14,7 @@
         <ng-container matColumnDef="height">
             <mat-header-cell *matHeaderCellDef mat-sort-header class="mat-cell-right">Height</mat-header-cell>
             <mat-cell *matCellDef="let row" class="mat-cell-right">
-                {{row.height.metres | number:'1.0-0'}}m&nbsp;({{row.height.metres | metresToFeet | number:'1.0-0'}}ft)
+                {{row.height.metres | formatHeight}}
             </mat-cell>
         </ng-container>
 

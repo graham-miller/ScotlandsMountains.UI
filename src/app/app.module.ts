@@ -18,7 +18,6 @@ import { ClassificationTableComponent } from './Components/classification-table/
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { MetresToFeetPipe } from './Pipes/metres-to-feet.pipe';
 import { MapComponent } from './Components/map/map.component';
 import { MapService } from './Services/Map.service';
 import { MountainMarkerService } from './Services/MountainMarker.service';
@@ -29,6 +28,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MountainComponent } from './Components/mountain/mountain.component';
 import { LoadingComponent } from './Components/loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormatHeightPipe } from './Pipes/format-height.pipe';
 
 @NgModule({
   declarations: [
@@ -38,13 +38,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FooterComponent,
     LegalComponent,
     MapComponent,
-    MetresToFeetPipe,
     ClassificationsComponent,
     ClassificationTableComponent,
     PageNotFoundComponent,
     GettyComponent,
     MountainComponent,
-    LoadingComponent
+    LoadingComponent,
+    FormatHeightPipe
   ],
   imports: [
     BrowserModule,
@@ -63,7 +63,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatOptionModule
   ],
   providers: [
-    MetresToFeetPipe,
+    FormatHeightPipe,
     MapService,
     MountainMarkerService
   ],

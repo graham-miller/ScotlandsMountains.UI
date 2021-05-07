@@ -4,13 +4,13 @@ import { Router } from "@angular/router";
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import { Mountain } from "../Models/Mountain";
-import { MetresToFeetPipe } from "../Pipes/metres-to-feet.pipe";
+import { FormatHeightPipe } from "../Pipes/format-height.pipe";
 
 @Injectable()
 export class MountainMarkerService {
 
     constructor(
-        private metresToFeet: MetresToFeetPipe,
+        private formatHeight: FormatHeightPipe,
         private router: Router
     ) { }
 
@@ -49,8 +49,7 @@ export class MountainMarkerService {
     }
 
     private getPopupText(mountain: Mountain): string {
-        const meters = formatNumber(mountain.height.metres, 'en-GB', '1.0-0');
-        const feet = formatNumber(this.metresToFeet.transform(mountain.height.metres), 'en-GB', '1.0-0');
-        return `<span>${mountain.name}<br/>${meters}m (${feet}ft)</span>`
+        const height = this.formatHeight.transform(mountain.height.metres);
+        return `<span>${mountain.name}<br/>${height}</span>`
     }
 }

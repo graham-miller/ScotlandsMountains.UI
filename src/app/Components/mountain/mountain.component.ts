@@ -27,7 +27,6 @@ export class MountainComponent implements OnInit {
     this.mountainDataService.getMountain(id).subscribe((response) => {
       if (response) {
         this.mountain = response;
-        console.log(response);
       } else {
         this.router.navigate(['/404'], { skipLocationChange: true });
       }
