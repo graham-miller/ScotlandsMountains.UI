@@ -41,7 +41,13 @@
         <dd><span *ngFor="let map of mountain.maps">{{map.code}} (1:{{1/map.scale | number:'1.0-0'}})<br/></span></dd>
 
         <dt>Classifications</dt>
-        <dd><span *ngFor="let classification of mountain.classifications">{{classification.name}}<br/></span></dd>
+        <dd>
+            <span *ngFor="let classification of mountain.classifications">
+                <a [routerLink]="['/classifications', classification.id]">
+                    {{classification.name}}
+                </a><br/>
+            </span>
+        </dd>
 
         <dt>Summit features</dt>
         <dd>{{mountain.features}}</dd>

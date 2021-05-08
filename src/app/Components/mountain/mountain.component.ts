@@ -25,8 +25,12 @@ export class MountainComponent implements OnInit {
 
   getMountain(id: string) {
     this.mountainDataService.getMountain(id).subscribe((response) => {
-      if (response) {
+      if (response?.classifications) {
         this.mountain = response;
+        if (this.mountain?.classifications) {
+          this.mountain.classifications = 
+            this.mountain.classifications.sort((a, b) => (a.displayOrder > b.displayOrder) ? 1 : -1);
+        }
       } else {
         this.router.navigate(['/404'], { skipLocationChange: true });
       }
