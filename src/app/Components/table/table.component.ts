@@ -5,11 +5,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Mountain } from 'src/app/Models/Mountain';
 
 @Component({
-  selector: 'app-classification-table',
-  templateUrl: './classification-table.component.html',
-  styleUrls: ['./classification-table.component.scss']
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss']
 })
-export class ClassificationTableComponent implements AfterViewInit, OnChanges {
+export class TableComponent implements AfterViewInit, OnChanges {
   columns: string[] = ['position', 'name', 'height'];
   dataSource: MatTableDataSource<Mountain> = new MatTableDataSource<Mountain>([]);
 

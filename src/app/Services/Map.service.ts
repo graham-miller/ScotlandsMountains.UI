@@ -8,7 +8,7 @@ L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
 @Injectable()
 export class MapService {
     
-    createMap(element: string | HTMLElement, layerGroups: L.LayerGroup<any>[]): L.Map {
+    public createMap(element: string | HTMLElement, layerGroups: L.LayerGroup<any>[]): L.Map {
 
         const map = L.map(element, this.mapOptions);
         map.attributionControl.setPrefix('');
@@ -23,15 +23,18 @@ export class MapService {
         return map;
     }
 
-    destroyMap(map: L.Map, replaceWith: string) {
+    public destroyMap(map: L.Map, replaceWith: string) {
         map.off();
         map.remove();
         map.getContainer().replaceWith(replaceWith);
     }
 
+    public readonly defaultCenter: L.LatLngExpression = [56.659406, -4.011214];
+    public readonly defaultZoom = 7
+
     private mapOptions = {
-        center: [56.659406, -4.011214],
-        zoom: 7,
+        center: this.defaultCenter,
+        zoom: this.defaultZoom,
         gestureHandling: true,
     } as L.MapOptions;
 

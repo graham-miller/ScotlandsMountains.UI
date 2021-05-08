@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Classification } from '../Models/Classification';
 import { InitialData } from '../Models/InitialData';
 import { Mountain } from '../Models/Mountain';
+import { SearchResult } from '../Models/SearchResult';
 
 @Injectable({
     providedIn: 'root'
@@ -31,6 +32,11 @@ export class MountainDataService {
     getMountain(id: string): Observable<Mountain> {
         return this.http.get<Mountain>(`http://localhost:7071/api/mountains/${id}`)
             .pipe(catchError(this.handleError<Mountain>(`getMountain(${id})`)))
+    }
+
+    search(term: string) {
+        return this.http.get<SearchResult>(`http://localhost:7071/api/search?term=${encodeURIComponent(term)}`)
+            .pipe(catchError(this.handleError<SearchResult>(`search(${term})`)))
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

@@ -43,7 +43,9 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnChanges {
     if (this.map) {
       const group = this.mountains.length > 300 ? this.clusteredMarkers : this.markers;
       this.mountains.forEach((m, i) => group.addLayer(this.mountainMarkerService.getMarker(m, -i)));
-      if (this.mountains.length === 1) {
+      if (this.mountains.length === 0) {
+        this.map.flyTo(this.mapService.defaultCenter, this.mapService.defaultZoom, {duration:0.5});
+      } else if (this.mountains.length === 1) {
         this.map.flyTo([this.mountains[0].location.coordinates[1], this.mountains[0].location.coordinates[0]], 13, {duration:0.5});
       } else {
         this.map.flyToBounds(this.getBounds(), {duration:0.5});

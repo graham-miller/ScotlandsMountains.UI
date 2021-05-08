@@ -8,13 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LegalComponent } from './Components/legal/legal.component';
-import { ClassificationTableComponent } from './Components/classification-table/classification-table.component';
+import { TableComponent } from './Components/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -25,10 +26,12 @@ import { ClassificationsComponent } from './Components/classifications/classific
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { GettyComponent } from './Components/getty/getty.component';
 import { MatOptionModule } from '@angular/material/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MountainComponent } from './Components/mountain/mountain.component';
 import { LoadingComponent } from './Components/loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormatHeightPipe } from './Pipes/format-height.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,7 @@ import { FormatHeightPipe } from './Pipes/format-height.pipe';
     LegalComponent,
     MapComponent,
     ClassificationsComponent,
-    ClassificationTableComponent,
+    TableComponent,
     PageNotFoundComponent,
     GettyComponent,
     MountainComponent,
@@ -50,9 +53,11 @@ import { FormatHeightPipe } from './Pipes/format-height.pipe';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
-    MatIconModule, 
+    MatIconModule,
+    MatInputModule,
     MatSelectModule,
     MatTabsModule,
     MatToolbarModule,
@@ -60,7 +65,8 @@ import { FormatHeightPipe } from './Pipes/format-height.pipe';
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatOptionModule
+    MatOptionModule,
+    MatAutocompleteModule
   ],
   providers: [
     FormatHeightPipe,

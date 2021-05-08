@@ -7,8 +7,6 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 
 const routes: Routes = [
   { path: '', redirectTo: 'classifications', pathMatch: 'full' },// component: HomeComponent },
-  // { path: 'search/:term', component: SearchComponent },
-  // { path: 'search', component: SearchComponent },
   { path: 'classifications/:id', component: ClassificationsComponent },
   { path: 'classifications', component: ClassificationsComponent },
   { path: 'mountains/:id', component: MountainComponent },
