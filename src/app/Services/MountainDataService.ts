@@ -34,9 +34,14 @@ export class MountainDataService {
             .pipe(catchError(this.handleError<Mountain>(`getMountain(${id})`)))
     }
 
-    search(term: string) {
-        return this.http.get<SearchResult>(`http://localhost:7071/api/search?term=${encodeURIComponent(term)}`)
+    search(term: string, continuationToken?: string) {
+        if (continuationToken) {
+            return this.http.post<SearchResult>(`http://localhost:7071/api/search?term=${encodeURIComponent(term)}`, continuationToken)
             .pipe(catchError(this.handleError<SearchResult>(`search(${term})`)))
+        } else {
+            return this.http.get<SearchResult>(`http://localhost:7071/api/search?term=${encodeURIComponent(term)}`)
+            .pipe(catchError(this.handleError<SearchResult>(`search(${term})`)))
+        }
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

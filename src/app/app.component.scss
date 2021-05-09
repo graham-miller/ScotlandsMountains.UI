@@ -1,13 +1,14 @@
 app-header {
     position: fixed;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     width: 100%  !important;
 }
 
 div.content-wrapper {
     background-color: whitesmoke;
     padding-bottom: 5rem;
+    z-index: 1;
 }
 
 div.content {

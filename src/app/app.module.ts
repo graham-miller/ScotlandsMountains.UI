@@ -32,6 +32,8 @@ import { LoadingComponent } from './Components/loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormatHeightPipe } from './Pipes/format-height.pipe';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './Components/search/search.component';
+import { AutofocusDirective } from './Directives/autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { FormsModule } from '@angular/forms';
     GettyComponent,
     MountainComponent,
     LoadingComponent,
-    FormatHeightPipe
+    FormatHeightPipe,
+    SearchComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
