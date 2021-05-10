@@ -34,6 +34,7 @@ import { FormatHeightPipe } from './Pipes/format-height.pipe';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './Components/search/search.component';
 import { AutofocusDirective } from './Directives/autofocus.directive';
+import { HighlightPipe } from './Pipes/highlight.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AutofocusDirective } from './Directives/autofocus.directive';
     LoadingComponent,
     FormatHeightPipe,
     SearchComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    HighlightPipe
   ],
   imports: [
     BrowserModule,

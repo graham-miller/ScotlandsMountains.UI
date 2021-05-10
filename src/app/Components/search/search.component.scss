@@ -23,3 +23,8 @@ div.spacer, mat-table {
 mat-table {
     overflow-y: auto;
 }
+
+:host ::ng-deep .result-name em { 
+    font-style: normal;
+    background-color: #ffd740 !important;
+}

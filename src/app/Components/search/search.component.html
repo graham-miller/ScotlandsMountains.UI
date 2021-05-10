@@ -14,7 +14,9 @@
 
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+            <mat-cell *matCellDef="let row">
+                <span class="result-name" [innerHTML]="row.name | highlight : searchResult.term"></span>
+            </mat-cell>
             <mat-footer-cell *matFooterCellDef>
                 <span *ngIf="searchResult.results.length === 0">No results</span>
                 <span *ngIf="searchResult.results.length > 0">
